@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+  <script defer src="script.js"></script> <!-- Link to external JavaScript file -->
+
+</head>
+<body>
+
+<h1>Instagram Feed</h1>
+<div id="instagram-feed"></div>  
+
+<div class="header">
+  <h2>Knit too Shabby</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="cardLeft">
+        <h2>Cargill Cowl</h2>
+        <h5>Dec 7, 2023</h5>
+        <div class="content">
+          <img src="Images\Cargill_cowl.jpg" alt="Image 1">
+          <div class="text">
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <div id="like_button_container"></div> <!-- This is where the React button will be rendered -->
+          </div>
+        </div>
+    </div>
+    <div class="cardCentre">
+      <h2>Erika Sock</h2>
+      <h5>Oct 2, 2023</h5>
+      <img src="Images\Erika_Sock.jpg" alt="Image 1">
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+    <div class="cardRight">
+        <h2>A Little Lacey</h2>
+        <h5>Sept 19, 2023</h5>
+        <div class="content">
+          <img src="Images\LaceJumper.jpg" alt="Image 1">
+          <div class="text">
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Hi everyone! My name is Rhian and welcome to my kniting (and occasionally sewing!) blog!!
+        I work full time as a physicist but in my spare time love expressing creativity in different ways. If you're like me and love the joy of crafting then please sign up to my newletter below where we discuss knitting patterns, social knitting etc.
+        Also please feel free to leave feedback and make any recommendations!
+        Thank you and enjoy your visit to my page!!
+      </p>
+    </div>
+    <div class="card">
+        <div class="card">
+            <h3>Previous Posts</h3>
+            <div class="slider">
+                <img id="sliderImage" src="C:/Users/Rhian/Desktop/Web Applications/Blog/Images/Petal_drop_sock.jpg" alt="Slider Image">
+                <button class="slider-button" onclick="showNextImage()">Next</button>
+            </div>
+          </div>          
+    <div class="card">
+      <h3>Signup to my newsletter!</h3>
+       <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+<!-- Load our React component. -->
+<script src="react_index.html\src\LikeButton.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Calibri;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Change heading font colors */
+.header h2,
+.card h2,
+.rightcolumn h2,
+.footer h2,
+.card h3,
+.rightcolumn h3 {
+  color: #daa520;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+ }
+
+.cardCentre {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+.cardCentre img {
+    width: 100%; /* Adjust image width as desired */
+    height: 400px;
+    object-fit: cover;
+    object-position: 25% 50%; 
+    border-radius: 5px;
+    margin-right: 20px; /* Optional: Add space between image and text */
+}
+
+/* Updated CSS for title heading and date above image and text */
+.cardLeft {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .cardLeft .content {
+    display: flex;
+    flex-direction: row; /* Align items in row (horizontal) */
+    align-items: flex-start; /* Align items at the start of flex container */
+  }
+  
+  .cardLeft img {
+    width: 50%; /* Adjust image width as desired */
+    height: auto;
+    border-radius: 5px;
+    margin-right: 20px; /* Optional: Add space between image and text */
+  }
+   
+ 
+/* Updated CSS for title heading and date above image on the right */
+.cardRight {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .cardRight h2, .card h5 {
+    margin-bottom: 10px; /* Optional: Add spacing between title/description and content */
+  }
+  
+  .cardRight .content {
+    display: flex;
+    flex-direction: row-reverse; /* Reverses order so image is on the right */
+    align-items: flex-start; /* Align items at the start of flex container */
+  }
+  
+  .cardRight img {
+    width: 50%; /* Adjust image width as desired */
+    height: auto;
+    border-radius: 5px;
+    margin-left: 20px; /* Optional: Add space between text and image */
+  }
+  
+  .cardRight .text {
+    flex: 1; /* Take remaining space */
+  }
+  
+  .cardRight p {
+    margin: 0; /* Remove default margins */
+  }
+  
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .slider img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: Rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for images */
+  }
+  
+  .slider button {
+    padding: 10px 20px;
+    background-color: #daa520;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .slider button:hover {
+    background-color: #eed28a;
+  }
+  
+  .form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #daa520;
+    border-radius: 4px;
+}
+.form-group input:focus {
+    border-color: #eed28a;
+    outline: none;
+}
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #daa520;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background-color: #eed28a;
+}
+
+#instagram-feed {
+  display: flex;
+  flex-wrap: wrap;
+}
+.instagram-post {
+  margin: 10px;
+  width: 200px;
+}
+.instagram-post img {
+  width: 100%;
+  height: auto;
+}
