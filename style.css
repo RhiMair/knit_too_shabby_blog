@@ -12,9 +12,6 @@ body {
 
 /* Header/Blog Title */
 .header {
-  padding: 30px;
-  font-size: 40px;
-  text-align: center;
   background: white;
 }
 
@@ -43,11 +40,12 @@ body {
 }
 
 /* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
+.fakeimg img {
+  width: 60%;
+  height: auto; /* Maintain aspect ratio */
+  padding: 20px; 
 }
+
 
 /* Add a card effect for articles */
 .card {
@@ -230,4 +228,45 @@ body {
 .instagram-post img {
   width: 100%;
   height: auto;
+}
+
+/* Like button styling */
+.like-button-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.like-button {
+  padding: 10px 20px;
+  background-color: #daa520;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.like-button:hover {
+  background-color: #eed28a;
+}
+
+.like-button:active {
+  transform: scale(0.95);
+}
+
+.likes-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff6347; /* Tomato color for the bubble */
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

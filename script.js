@@ -25,3 +25,23 @@ fetch('https://official-joke-api.appspot.com/random_joke')
     document.getElementById('joke').innerText = `${data.setup} - ${data.punchline}`;
   })
   .catch(error => console.error('Error:', error));
+
+// Colour palette API
+fetch('https://www.colourlovers.com/api/palettes/top?format=json')
+  .then(response => response.json())
+  .then(data => {
+    let palettesHtml = '';
+    data.forEach(palette => {
+      let colorsHtml = '';
+      palette.colors.forEach(color => {
+        colorsHtml += `<div style="background-color:#${color}; width:20px; height:20px; display:inline-block;"></div>`;
+      });
+      palettesHtml += `<div>
+        <h3>${palette.title}</h3>
+        ${colorsHtml}
+      </div>`;
+    });
+    document.getElementById('palettes').innerHTML = palettesHtml;
+  })
+  .catch(error => console.error('Error:', error));
+
