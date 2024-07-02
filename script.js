@@ -18,39 +18,11 @@ function showNextImage() {
   document.getElementById("sliderImage").src = imageUrl;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  const accessToken = 'IGQWROYWFGc09hSV9la2QxcG9HTl9zZAlhheDlrRDVuUFBRcDlpcEh3V2JhOWx3ZAnVXTVEyWnVFV2g1ZAFdkTkhQa0t3cFRYWVdkZAXBMWGV6Y3dkUXMtME9wZAkwyYzVZAcXZAlN0xoU1JoRzNjSm1sUXRESFBselVSR28ZD'; // Replace with your Instagram access token
-  const userId = '57032395944'; // Replace with the Instagram user ID
-
-  fetch(`https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink&access_token=${accessToken}`)
-      .then(response => response.json())
-      .then(data => {
-          const feedContainer = document.getElementById('instagram-feed');
-          data.data.forEach(post => {
-              const postElement = document.createElement('div');
-              postElement.className = 'instagram-post';
-              
-              if (post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM') {
-                  const imgElement = document.createElement('img');
-                  imgElement.src = post.media_url;
-                  postElement.appendChild(imgElement);
-              } else if (post.media_type === 'VIDEO') {
-                  const videoElement = document.createElement('video');
-                  videoElement.src = post.media_url;
-                  videoElement.controls = true;
-                  postElement.appendChild(videoElement);
-              }
-
-              if (post.caption) {
-                  const captionElement = document.createElement('p');
-                  captionElement.textContent = post.caption;
-                  postElement.appendChild(captionElement);
-              }
-
-              feedContainer.appendChild(postElement);
-          });
-      })
-      .catch(error => {
-          console.error('Error fetching Instagram feed:', error);
-      });
-});
+// Example: Fetch and Display Quote of the Day
+fetch('https://api.quotable.io/random')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('quote').innerText = data.content;
+    document.getElementById('author').innerText = data.author;
+  })
+  .catch(error => console.error('Error:', error));
