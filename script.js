@@ -18,11 +18,10 @@ function showNextImage() {
   document.getElementById("sliderImage").src = imageUrl;
 }
 
-// Example: Fetch and Display Quote of the Day
-fetch('https://api.quotable.io/random')
+// Example: Fetch and Display a Joke
+fetch('https://official-joke-api.appspot.com/random_joke')
   .then(response => response.json())
   .then(data => {
-    document.getElementById('quote').innerText = data.content;
-    document.getElementById('author').innerText = data.author;
+    document.getElementById('joke').innerText = `${data.setup} - ${data.punchline}`;
   })
   .catch(error => console.error('Error:', error));
