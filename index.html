@@ -69,26 +69,6 @@
             </div>
           </div>          
 
-
-    <!-- supabase deployment -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script>
-      const supabaseUrl = "https://vrkapnhfgoijczrzctwv.supabase.co";
-      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZya2FwbmhmZ29pamN6cnpjdHd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk5MzUzNTQsImV4cCI6MjAzNTUxMTM1NH0.ooxZeR0O3d3nSfbJKrw7AFr1dVX5q-qoZJfnYs0-07M";
-
-      const supabase = createClient(supabaseUrl, supabaseKey);
-      const signupButton = document.getElementById('submit-btn');
-      document.getElementById("newsletter_signup").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const email = formData.get('email');
-        const password = formData.get('password');
-        console.log('Sign up successful:', data.user);
-        signupButton.textContent = "Signed Up!";
-        signupButton.disabled = true;}
-
-    </script>
-
     <div class="card">
       <h3>Signup to my newsletter!</h3>
        <form id="newsletter_signup">
@@ -103,6 +83,30 @@
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
+
+    <!-- supabase deployment -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+      const supabaseUrl = "https://vrkapnhfgoijczrzctwv.supabase.co";
+      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZya2FwbmhmZ29pamN6cnpjdHd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk5MzUzNTQsImV4cCI6MjAzNTUxMTM1NH0.ooxZeR0O3d3nSfbJKrw7AFr1dVX5q-qoZJfnYs0-07M";
+
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      const signupButton = document.getElementById('submit-btn');
+      document.getElementById("newsletter_signup").addEventListener("submit"), async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const name =  formData.get('name');
+        const email = formData.get('email');
+
+        const { error } = await supabase
+          .from('newsletter_subscribers')
+          .insert({ name: name, email: email })
+
+        console.log('Sign up successful:', data.user);
+        signupButton.textContent = "Signed Up!";
+        signupButton.disabled = true;
+      }
+    </script>
 
 
     <div class = "card">
