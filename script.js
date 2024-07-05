@@ -26,22 +26,64 @@ fetch('https://official-joke-api.appspot.com/random_joke')
   })
   .catch(error => console.error('Error:', error));
 
-// Colour palette API
-fetch('https://www.colourlovers.com/api/palettes/top?format=json')
-  .then(response => response.json())
-  .then(data => {
-    let palettesHtml = '';
-    data.forEach(palette => {
-      let colorsHtml = '';
-      palette.colors.forEach(color => {
-        colorsHtml += `<div style="background-color:#${color}; width:20px; height:20px; display:inline-block;"></div>`;
-      });
-      palettesHtml += `<div>
-        <h3>${palette.title}</h3>
-        ${colorsHtml}
-      </div>`;
-    });
-    document.getElementById('palettes').innerHTML = palettesHtml;
-  })
-  .catch(error => console.error('Error:', error));
+var url = "http://colormind.io/api/";
+var data = {
+	model : "default",
+	input : [[44,43,44],[90,83,82],"N","N","N"]
+}
 
+var http = new XMLHttpRequest();
+
+http.onreadystatechange = function() {
+	if(http.readyState == 4 && http.status == 200) {
+		var palette = JSON.parse(http.responseText).result;
+    displayPalette(palette);
+	}
+}
+
+http.open("POST", url, true);
+http.send(JSON.stringify(data));
+
+function displayPalette(palette) {
+  const palettesContainer = document.getElementById('palettes');
+  let paletteHtml = '<div class="palette">';
+  palette.forEach(color => {
+    const colorHex = `#${color.map(c => c.toString(16).padStart(2, '0')).join('')}`;
+    paletteHtml += `<div class="color" style="background-color:${colorHex};"></div>`;
+  });
+  paletteHtml += '</div>';
+  palettesContainer.innerHTML += paletteHtml;
+}
+
+function generatePalette() {
+  const color1 = document.getElementById('color1').value;
+
+  // Convert hex color to RGB array
+  const color1Rgb = hexToRgb(color1);
+  const url = "http://colormind.io/api/";
+  const data = {
+    model: "default",
+    input: [color1Rgb, "N", "N", "N", "N"]
+  };
+
+  const http = new XMLHttpRequest();
+
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      const palette = JSON.parse(http.responseText).result;
+      displayPalette(palette);
+    }
+  };
+
+  http.open("POST", url, true);
+  http.send(JSON.stringify(data));
+}
+
+function hexToRgb(hex) {
+  // Convert hex color to RGB array
+  const bigint = parseInt(hex.slice(1), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return [r, g, b];
+}

@@ -52,15 +52,16 @@ class LikeButton extends React.Component {
 
   render() {
     const { id } = this.props;
+    const isLiked = this.state.likedItems.includes(id);
     return e(
       'div',
       { className: 'like-button-container' },
       e(
         'button',
         { 
-          className: 'like-button', 
+          className: `like-button ${isLiked ? 'liked' : ''}`, 
           onClick: this.handleLike,
-          disabled: this.state.likedItems.includes(id) // Disable the button if already liked
+          disabled: isLiked // Disable the button if already liked
         },
         'Likes'
       ),

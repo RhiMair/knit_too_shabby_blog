@@ -9,15 +9,10 @@
 <body>
 
 <!-- <h2>Random Joke</h2>
-<div id="joke"></div>
-
-<h2>Colour Palette</h2>
-<div id="palettes"></div> -->
+<div id="joke"></div>-->
 
 <div class="header">
-  <div class = "fakeimg">
     <img src="Images\HeaderImg.jpg" alt="Header">
-  </div>
 </div>
 
 <div class="row">
@@ -67,9 +62,9 @@
     </div>
     <div class="card">
         <div class="card">
-            <h3>Previous Posts</h3>
+            <h3>Previous Projects</h3>
             <div class="slider">
-                <img id="sliderImage" src="C:/Users/Rhian/Desktop/Web Applications/Blog/Images/Petal_drop_sock.jpg" alt="Slider Image">
+                <img id="sliderImage" src="Images\Petal_drop_sock.jpg" alt="Slider Image">
                 <button class="slider-button" onclick="showNextImage()">Next</button>
             </div>
           </div>          
@@ -86,6 +81,18 @@
             </div>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
+    </div>
+    <div class = "card">
+      <h2>Colour Palette Generator</h2>
+      <p>
+        By choosing a single colour a palette can be generated to help with all your colour designing needs! The suggested palletes have been generated using deep learning, with different datasets available each day so come back tomorrow and check for more! For more info visit colormind.io 
+      </p>
+      <div>
+        <label for="color1">Color 1:</label>
+        <input type="color" id="color1" class="color-input" value="#2c2b2c">
+        <button class = "submit-btn" onclick="generatePalette()">Generate Palette</button>
+      </div>
+      <div id="palettes"></div> 
     </div>
   </div>
 </div>

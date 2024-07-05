@@ -10,10 +10,19 @@ body {
   background: #f1f1f1;
 }
 
-/* Header/Blog Title */
+/* Header */
 .header {
   background: white;
+  display: flex;
+  justify-content: center;
 }
+
+/* Header image */
+.header img{
+  width: 60%;
+  height: auto; /* Maintain aspect ratio */
+}
+
 
 /* Change heading font colors */
 .header h2,
@@ -38,14 +47,6 @@ body {
   width: 25%;
   padding-left: 20px;
 }
-
-/* Fake image */
-.fakeimg img {
-  width: 60%;
-  height: auto; /* Maintain aspect ratio */
-  padding: 20px; 
-}
-
 
 /* Add a card effect for articles */
 .card {
@@ -249,10 +250,12 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
   position: relative;
+  transition: transform 0.2s ease-in-out
 }
 
 .like-button:hover {
   background-color: #eed28a;
+  transform: scale(1.1);
 }
 
 .like-button:active {
@@ -269,4 +272,29 @@ body {
   padding: 5px 10px;
   font-size: 14px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.like-button.liked {
+  background-color: #cccccc; /* Grayed out color */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+}
+
+.like-button:disabled {
+  background-color: #cccccc; /* Grayed out color */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+}
+
+#palettes { display: flex; flex-wrap: wrap; gap: 20px; }
+    .palette { 
+      display: flex;
+      flex-direction: column; 
+      width: 100%; 
+      padding: 10px; }
+    .color { height: 40px; margin-bottom: 5px; }
+
+.color-input{
+  background-color: white;
+  border: none;
+  text-align: center;
+  position: center;
 }
