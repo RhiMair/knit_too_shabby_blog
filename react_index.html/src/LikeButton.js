@@ -5,9 +5,13 @@ const e = React.createElement;
 class LikeButton extends React.Component {
   constructor(props) {
     super(props);
-    // Retrieve the likes array from localStorage or initialize it
+    // Retrieve the likes and likedItems arrays from localStorage or initialize them
     const savedLikes = localStorage.getItem('likes');
-    this.state = { likes: savedLikes ? JSON.parse(savedLikes) : [] };
+    const savedLikedItems = localStorage.getItem('likedItems');
+    this.state = { 
+      likes: savedLikes ? JSON.parse(savedLikes) : [], 
+      likedItems: savedLikedItems ? JSON.parse(savedLikedItems) : [] 
+    };
   }
 
   componentDidMount() {
@@ -15,23 +19,33 @@ class LikeButton extends React.Component {
     // Ensure the likes array has a count for this button
     this.setState((prevState) => {
       const likes = [...prevState.likes];
+      const likedItems = [...prevState.likedItems];
       if (likes[id] === undefined) {
         likes[id] = 0;
       }
-      return { likes };
+      return { likes, likedItems };
     });
   }
 
   handleLike = () => {
     const { id } = this.props;
+
+    // Prevent liking the same item multiple times
+    if (this.state.likedItems.includes(id)) {
+      return;
+    }
+
     this.setState(
       (prevState) => {
         const likes = [...prevState.likes];
+        const likedItems = [...prevState.likedItems];
         likes[id] += 1;
-        return { likes };
+        likedItems.push(id);
+        return { likes, likedItems };
       },
       () => {
         localStorage.setItem('likes', JSON.stringify(this.state.likes));
+        localStorage.setItem('likedItems', JSON.stringify(this.state.likedItems));
       }
     );
   };
@@ -43,7 +57,11 @@ class LikeButton extends React.Component {
       { className: 'like-button-container' },
       e(
         'button',
-        { className: 'like-button', onClick: this.handleLike },
+        { 
+          className: 'like-button', 
+          onClick: this.handleLike,
+          disabled: this.state.likedItems.includes(id) // Disable the button if already liked
+        },
         'Likes'
       ),
       e(
