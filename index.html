@@ -12,7 +12,7 @@
 <div id="joke"></div>-->
 
 <div class="header">
-    <img src="Images\HeaderImg.jpg" alt="Header">
+  <img src="Images\HeaderImg.jpg" alt="Header">
 </div>
 
 <div class="row">
@@ -68,9 +68,30 @@
                 <button class="slider-button" onclick="showNextImage()">Next</button>
             </div>
           </div>          
+
+
+    <!-- supabase deployment -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+      const supabaseUrl = "https://vrkapnhfgoijczrzctwv.supabase.co";
+      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZya2FwbmhmZ29pamN6cnpjdHd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk5MzUzNTQsImV4cCI6MjAzNTUxMTM1NH0.ooxZeR0O3d3nSfbJKrw7AFr1dVX5q-qoZJfnYs0-07M";
+
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      const signupButton = document.getElementById('submit-btn');
+      document.getElementById("newsletter_signup").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        console.log('Sign up successful:', data.user);
+        signupButton.textContent = "Signed Up!";
+        signupButton.disabled = true;
+
+    </script>
+
     <div class="card">
       <h3>Signup to my newsletter!</h3>
-       <form>
+       <form id="newsletter_signup">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -82,6 +103,8 @@
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
+
+
     <div class = "card">
       <h2>Colour Palette Generator</h2>
       <p>
@@ -98,7 +121,7 @@
 </div>
 
 <div class="footer">
-  <h2>Footer</h2>
+  <p>© 2024 Knit Too Shabby. All rights reserved.</p>
 </div>
 
 <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
